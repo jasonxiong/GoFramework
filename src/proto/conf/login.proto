@@ -1,0 +1,15 @@
+package gameproto;
+
+//登录请求，对应LOGINSVR_LOGIN_REQ
+message LoginSvr_LoginReq
+{
+    optional uint32 uin = 1;            //玩家的uin
+    optional string strSessionKey = 2;  //玩家登录的Key
+}
+
+//登录返回
+message LoginSvr_LoginResp
+{
+    optional int32 iResult = 1;         //登录的结果
+    //todo jasonxiong 后续增加玩家详细数据
+}

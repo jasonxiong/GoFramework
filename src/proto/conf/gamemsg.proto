@@ -1,0 +1,30 @@
+package gameproto;
+
+//客户端服务器通信的消息
+message ProtoMsg
+{
+    optional MsgID msgid = 1;       //消息ID
+    optional uint32 uin = 2;        //玩家uin
+    optional bytes msgdata = 3;     //实际消息体序列化后的二进制
+}
+
+//定义消息ID
+enum MsgID
+{
+    MSGID_INVALID = 0;                  //非法的消息
+
+    //系统消息ID
+    CLUSTER_UPDATEINFO_NOTIFY = 1;      //通知集群对端本地端点信息
+
+    //登录服务消息ID
+    LOGINSVR_LOGIN_REQ = 30;             //登录请求
+    LOGINSVR_LOGIN_RESP = 31;            //登录返回
+}
+
+//以下为服务器消息，业务无关
+
+//集群信息通知，对应CLUSTER_UPDATEINFO_NOTIFY
+message Cluster_UpdateInfoNotify
+{
+    optional int32 localendID = 1;      //本端服务器ID
+}

@@ -1,0 +1,16 @@
+{
+	"TCPAddr": "",
+	"MaxConnNum": 20000,
+
+	"SvrBaseConfig":{
+		"LogLevel": "debug",
+		"LogPath": "",
+		"ConsolePort":0,
+		"ConsolePrompt":"#fishdebug#",
+		"ProfilePath":"",
+		"ServerID":12001,
+		"ListenAddr":"127.0.0.1:3001",
+		"ConnAddrs":[],
+		"PendingWriteNum":2000
+	}
+}

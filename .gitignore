@@ -1,0 +1,9 @@
+/bin/lobbysvr.exe
+/bin/loginsvr.exe
+/bin/client
+/bin/lobbysvr
+/pkg/windows_386
+/pkg/linux_amd64
+/bin/loginsvr
+/bin/gamesvr
+/pkg/darwin_amd64
