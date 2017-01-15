@@ -78,8 +78,21 @@ func handleLogin(args []interface{}) {
 		return
 	}
 
+	skeleton.Go(func() {
+		account := reqMsg.GetStrAccount()
+		passwd := reqMsg.GetStrPasswd()
+		acctype := reqMsg.GetIAccType()
+
+		//从数据库中读取数据, todo jasonxiong 再来实现
+
+	}, func() {
+		//数据库返回，根据结果判断登录是否成功
+
+		//todo jasonxiong 再来实现
+	})
+
 	//todo jasonxiong 确认后编写登录的详细逻辑
-	log.Debug("success to process login request, uin %u\n", reqMsg.GetUin())
+	log.Debug("success to process login request, account %s, type %d\n", reqMsg.GetStrAccount(), reqMsg.GetIAccType())
 
 	//发送返回
 	respLogin, err := proto.Marshal(&gameproto.LoginSvr_LoginResp{IResult: proto.Int32(0)})
@@ -90,7 +103,7 @@ func handleLogin(args []interface{}) {
 
 	respMsg := &gameproto.ProtoMsg{
 		Msgid:   gameproto.MsgID_LOGINSVR_LOGIN_RESP.Enum(),
-		Uin:     proto.Uint32(reqMsg.GetUin()),
+		Uin:     proto.Uint32(1000),
 		Msgdata: respLogin,
 	}
 

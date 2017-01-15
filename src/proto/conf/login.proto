@@ -1,15 +1,22 @@
 package gameproto;
 
 //登录请求，对应LOGINSVR_LOGIN_REQ
+//todo jasonxiong 暂时使用账号密码登录，后续根据对接的平台修改
 message LoginSvr_LoginReq
 {
-    optional uint32 uin = 1;            //玩家的uin
-    optional string strSessionKey = 2;  //玩家登录的Key
+    optional string strAccount = 1;         //玩家账号
+    optional string strPasswd = 2;          //玩家密码
+    optional int32 iAccType = 3;            //账号类型
+
+    //optional uint32 uin = 1;            //玩家的uin
+    //optional string strSessionKey = 2;  //玩家登录的Key
 }
 
-//登录返回
+//登录返回,对应LOGINSVR_LOGIN_RESP
 message LoginSvr_LoginResp
 {
-    optional int32 iResult = 1;         //登录的结果
+    optional int32 iResult = 1;             //登录的结果
+    optional string strSessionKey = 2;      //登录返回的session key
+    optional string strLoginInfo = 3;       //玩家登陆数据信息
     //todo jasonxiong 后续增加玩家详细数据
 }
